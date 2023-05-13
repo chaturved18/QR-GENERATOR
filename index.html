@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE GENERATOR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="https://as1.ftcdn.net/v2/jpg/02/05/17/98/1000_F_205179848_aWskcpESifV6vpMDhFxDnm8ksSTIlgfC.jpg">
+</head>
+<body>
+    
+    <!-- <div class="grid">
+        <h2 align="center">QR CODE GENERATOR</h2>
+        <center>
+            <img src="" id="img">
+        
+        <br>
+        <br>
+        
+        <br>
+        <br>
+        <input type="submit" value="Generate" onclick="genQR()">
+    </center>
+
+    </div> -->
+    <script type="text/javascript">
+        function genQR()
+        {
+            var gapi="https://chart.googleapis.com/chart?chf=bg,s,65432100&cht=qr&chs=";
+            var myimg=document.getElementById("img");
+            var mytext=document.getElementById("text").value;
+            var mysize=document.getElementById("size").value;
+            var x=document.getElementById("f1");
+            y='450px';
+            x.style.height=Number(y.replace(/px$/, ''))+parseInt(mysize)+'px';
+            if(mytext!=="" && mysize=="100")
+            {
+                myimg.src=gapi+"100x100"+"&chl="+mytext;
+            }
+            else if(mytext!=="" && mysize=="150")
+            {
+                myimg.src=gapi+"150x150"+"&chl="+mytext;
+            }
+            else if(mytext!=="" && mysize=="200")
+            {
+                myimg.src=gapi+"200x200"+"&chl="+mytext;
+            }
+            else if(mytext!=="" && mysize=="250")
+            {
+                myimg.src=gapi+"250x250"+"&chl="+mytext;
+            }
+            else if(mytext!=="" && mysize=="300")
+            {
+                myimg.src=gapi+"300x300"+"&chl="+mytext;
+            }
+            else
+            {
+                alert("please enter text!");
+            }
+        }
+    </script>
+
+
+    <div class="form" id="f1">
+        <center><div class="title">QR GENERATOR</div>
+            <br>
+        <img src="" id="img"></center>
+        <div class="input-container ic1">
+            <select id="size" class="input">
+                <option value="100">100x100</option>
+                <option value="150">150x150</option>
+                <option value="200">200x200</option>
+                <option value="250" selected>250x250</option>
+                <option value="300">300x300</option>
+            </select>
+        </div>
+        <div class="input-container ic2">
+            <textarea id="text" class="input"></textarea>
+        </div>
+        <input type="submit" class="submit" value="Generate" onclick="genQR()">
+      </div>
+</body>
+</html>
